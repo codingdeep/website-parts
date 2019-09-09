@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bootstrap Collapse</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="font-awesome.css">
+    <style>
+        .panel-heading {
+            border-radius: 0
+        }
+
+        .panel-group .panel {
+            border-radius: 0
+        }
+
+        .panel-heading h3 {
+            margin: 0
+        }
+
+        .panel-heading h3 a {
+            display: flex;
+            justify-content: space-between
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+
+                <div class="panel panel-group" id="abc">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3><a href="#a" data-toggle="collapse" data-parent="#abc"><span>Collapse One</span><i
+                                        class="more-less fa fa-minus"></i></a></h3>
+                        </div>
+                        <div class="panel-body panel-collapse collapse in" id="a">
+                            <div class="">
+                                <h3>Collapse body</h3>
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae earum cupiditate
+                                    repellat sapiente enim, eaque rem nam, quam quia possimus modi exercitationem
+                                    debitis. Excepturi accusantium provident dolores dicta voluptatem aspernatur!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3><a href="#b" data-toggle="collapse" data-parent="#abc"><span>Collapse One</span><i
+                                        class="more-less fa fa-plus"></i></a></h3>
+                        </div>
+                        <div class="panel-body panel-collapse collapse" id="b">
+                            <div class="">
+                                <h3>Collapse body</h3>
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae earum cupiditate
+                                    repellat sapiente enim, eaque rem nam, quam quia possimus modi exercitationem
+                                    debitis. Excepturi accusantium provident dolores dicta voluptatem aspernatur!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        function toggleIcon(e) {
+            $(e.target)
+                .prev('.panel-heading')
+                .find(".more-less")
+                .toggleClass('fa-plus fa-minus');
+        }
+        $('.panel-group').on('hidden.bs.collapse', toggleIcon);
+        $('.panel-group').on('shown.bs.collapse', toggleIcon);
+    </script>
+</body>
+
+</html>
